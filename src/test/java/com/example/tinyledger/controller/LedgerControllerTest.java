@@ -70,7 +70,7 @@ public class LedgerControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(withdrawal)));
 
-        resultActions.andExpect(status().isUnprocessableEntity())
+        resultActions.andExpect(status().isUnprocessableContent())
                 .andExpect(jsonPath("$.message").value("Withdrawal of '9999.00' exceeds current balance: '150.00'"));
     }
 
